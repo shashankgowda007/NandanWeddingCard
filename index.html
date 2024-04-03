@@ -75,28 +75,7 @@
 
 </head>
 <body>
-	<!-- <button id="startButton">Start Background Music</button> -->
-	
 
- <audio id="audio-player" loop>
-	<source src="allubgm.mp3" type="audio/mpeg">
-	Your browser does not support the audio element.
-</audio>
-
-<script>
-	// JavaScript to control the audio player
-	const audioPlayer = document.getElementById('audio-player');
-
-	// Function to play audio
-	function playAudio() {
-		audioPlayer.play();
-		// Remove event listener after first interaction to avoid multiple playbacks
-		document.removeEventListener('click', playAudio);
-	}
-
-	// Event listener for the first user interaction (click)
-	document.addEventListener('click', playAudio);
-</script> 
 <div class="fh5co-loader"></div>
 
 <!--<div class="container">-->
@@ -194,6 +173,16 @@
 
 						<button class="btn btn-primary" id="open-invitation">Open Invitation......</button>
 					</div>
+					<script>
+						// JavaScript to play the audio when the "Open Invitation" button is clicked
+						document.getElementById('open-invitation').addEventListener('click', function () {
+							// Create an audio element
+							var audio = new Audio();
+							audio.src = 'allubgm.mp3'; // Change 'background_music.mp3' to the path of your audio file
+							audio.loop = true; // Loop the audio
+							audio.play(); // Play the audio
+						});
+					</script>
 				</div>
 			</div>
 		</div>
@@ -418,212 +407,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div id="fh5co-health-protocol">
-	<img src="images/background/blue-brush-1.jpg" alt="">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Health Protocol & Recommendations</h2>
-					<p style="color: #bf9b73">Guna mencegah penyebaran Covid-19, diharapkan bagi tamu undangan untuk mematuhi Protokol Kesehatan di bawah ini :</p>
-				</div>
 
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="row">
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/distance.png" alt="Jaga jarak"/>
-								</div>
-								<div class="description">
-									<h3>Jaga Jarak</h3>
-									<p>Jaga jarak minimal 2m dengan orang lain</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 15px" height="90px" width="90px" src="images/health-protocol/gel.png" alt="Hand Sanitizer"/>
-								</div>
-								<div class="description">
-									<h3>Gunakan Handsanitizer</h3>
-									<p>Gunakan handsanitizer secara berkala</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/washing-hands.png" alt="Cuci Tangan"/>
-								</div>
-								<div class="description">
-									<h3>Cuci Tangan</h3>
-									<p>Cuci tangan yang bersih</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/quarantine.png" alt="Jaga jarak"/>
-								</div>
-								<div class="description">
-									<h3>Hindari Kerumunan</h3>
-									<p>Hindari kerumunan untuk mencegah penyebaran covid</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 15px" height="90px" width="90px" src="images/health-protocol/mask.png" alt="Pakai Masker"/>
-								</div>
-								<div class="description">
-									<h3>Gunakan Masker</h3>
-									<p>Pakai masker sebelum memasuki gedung acara</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/shaking-hands.png" alt="Tidak Bersalaman"/>
-								</div>
-								<div class="description">
-									<h3>Tidak Bersalaman</h3>
-									<p>Diusahakan untuk tidak bersalaman</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<p style="color: #bf9b73">dan mengikuti anjuran di bawah ini :</p>
-					<div class="row">
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/eating.png" alt="Adab makan minum"/>
-								</div>
-								<div class="description">
-									<h3>Makan Minum</h3>
-									<p>Mohon memperhatikan adab makan dan minum (duduk, membaca bismillah, tidak mencela makanan dan tidak mubazir)</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 15px" height="100px" width="100px" src="images/health-protocol/no-shaking-hands.png" alt="Jaga jarak"/>
-								</div>
-								<div class="description">
-									<h3>Tidak Bercampur Baur</h3>
-									<p>Mohon untuk tidak bercampur baur dan tidak bersalaman antara tamu laki-laki dan perempuan termasuk saat berfoto (kecuali dengan mahram)</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-4 col-xs-6">
-							<div class="item-protocol">
-								<div class="icon">
-									<img style="padding: 10px" height="90px" width="90px" src="images/health-protocol/rug.png" alt="Sholat"/>
-								</div>
-								<div class="description">
-									<h3>Sholat</h3>
-									<p>Memperhatikan waktu shalat wajib dan tidak meninggalkannya</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
-
-	<!--<div class="row">
-                <div class="col-md-12 animate-box">
-                    <div class="wrap-testimony">
-                        <div class="owl-carousel-fullwidth">
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/couple-1.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics"</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/couple-2.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, at the coast of the Semantics, a large language ocean."</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <figure>
-                                        <img src="images/couple-3.jpg" alt="user">
-                                    </figure>
-                                    <span>John Doe, via <a href="#" class="twitter">Twitter</a></span>
-                                    <blockquote>
-                                        <p>"Far far away, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-
-			<!-- <div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="list-group"></div>
-				</div>
-			</div>
-
-			<div id="button-send" class="text-center animate-box">
-				<a href="https://github.com/maulidandev/nikah-rehan-maulidan/issues/new/choose" target="_blank" class="btn btn-primary btn-sm">Kirim Ucapan</a><br>
-				<i style="font-size: 15px">Note : Hanya bisa diisi jika mempunyai akun github. Jika belum ada silahkan daftar terlebih dahulu</i>
-			</div>
-		</div> -->
-	</div>
-
-	<!--<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Are You Attending?</h2>
-					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
-				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1">
-					<form class="form-inline">
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="name" class="sr-only">Name</label>
-								<input type="name" class="form-control" id="name" placeholder="Name">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<button type="submit" class="btn btn-default btn-block">I am Attending</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>-->
 
 	<footer id="fh5co-footer" role="contentinfo" style="background: url('images/background/repeat-background/witewall_3.png'); background-repeat:repeat ">
 		<div class="container">
