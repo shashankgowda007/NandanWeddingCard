@@ -174,15 +174,36 @@
 						<button class="btn btn-primary" id="open-invitation">Open Invitation......</button>
 					</div>
 					<script>
-						// JavaScript to play the audio when the "Open Invitation" button is clicked
-						document.getElementById('open-invitation').addEventListener('click', function () {
-							// Create an audio element
-							var audio = new Audio();
-							audio.src = 'allubgm.mp3'; // Change 'background_music.mp3' to the path of your audio file
-							audio.loop = true; // Loop the audio
-							audio.play(); // Play the audio
+						document.addEventListener('DOMContentLoaded', function () {
+							// Function to play audio
+							function playAudio() {
+								var audio = new Audio('allubgm.mp3'); // Change 'allubgm.mp3' to the path of your audio file
+								audio.loop = true; // Loop the audio
+								audio.play(); // Play the audio
+							}
+
+							// Function to handle the click event
+							function handleClick() {
+								// Check if the audio is already playing
+								if (!audio || audio.paused) {
+									playAudio();
+								} else {
+									audio.pause(); // Pause the audio if already playing
+								}
+							}
+
+							// Add event listener to the button
+							var audio;
+							document.getElementById('open-invitation').addEventListener('click', function () {
+								if (!audio) {
+									audio = playAudio();
+								} else {
+									handleClick();
+								}
+							});
 						});
 					</script>
+
 				</div>
 			</div>
 		</div>
