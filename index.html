@@ -77,30 +77,8 @@
 <body>
 	<!-- <button id="startButton">Start Background Music</button> -->
 	
-	<audio id="audio-player" loop>
-		<source src="allubgm.mp3" type="audio/mpeg">
-		Your browser does not support the audio element.
-	</audio>
-	
-	<script>
-		// JavaScript to control the audio player
-		const audioPlayer = document.getElementById('audio-player');
 
-		// Function to play audio
-		function playAudio() {
-			audioPlayer.play().catch(error => {
-				console.error("Autoplay was prevented:", error);
-			});
-			// Remove event listeners after audio playback starts to avoid multiple playbacks
-			document.removeEventListener('click', playAudio);
-			document.removeEventListener('touchstart', playAudio);
-		}
-
-		// Event listeners for the first user interaction (click or touch)
-		document.addEventListener('click', playAudio);
-		document.addEventListener('touchstart', playAudio);
-	</script>
-<!-- <audio id="audio-player" loop>
+ <audio id="audio-player" loop>
 	<source src="allubgm.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
 </audio>
@@ -118,7 +96,7 @@
 
 	// Event listener for the first user interaction (click)
 	document.addEventListener('click', playAudio);
-</script> -->
+</script> 
 <div class="fh5co-loader"></div>
 
 <!--<div class="container">-->
