@@ -75,6 +75,8 @@
 
 </head>
 <body>
+	<button id="startButton">Start Background Music</button>
+	
 	<audio id="audio-player" loop>
 		<source src="allubgm.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
@@ -83,18 +85,21 @@
 	<script>
 		// JavaScript to control the audio player
 		const audioPlayer = document.getElementById('audio-player');
+		const startButton = document.getElementById('startButton');
 
 		// Function to play audio
 		function playAudio() {
 			audioPlayer.play();
-			// Remove event listener after first interaction to avoid multiple playbacks
-			document.removeEventListener('touchstart', playAudio); // for touch devices like iPhone
-			document.removeEventListener('click', playAudio); // for non-touch devices
+			// Hide the start button after playing audio
+			startButton.style.display = 'none';
+			// Remove event listeners after audio playback starts to avoid multiple playbacks
+			document.removeEventListener('click', playAudio);
+			document.removeEventListener('touchstart', playAudio);
 		}
 
-		// Event listener for the first user interaction (touch or click)
-		document.addEventListener('touchstart', playAudio); // for touch devices like iPhone
-		document.addEventListener('click', playAudio); // for non-touch devices
+		// Event listeners for the first user interaction (click or touch)
+		document.addEventListener('click', playAudio);
+		document.addEventListener('touchstart', playAudio);
 	</script>
 <!-- <audio id="audio-player" loop>
 	<source src="allubgm.mp3" type="audio/mpeg">
