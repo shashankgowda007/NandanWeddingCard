@@ -77,29 +77,27 @@
 <body>
 	<!-- <button id="startButton">Start Background Music</button> -->
 	
-		<audio id="audio-player" autoplay loop>
-			<source src="allubgm.mp3" type="audio/mpeg">
-			Your browser does not support the audio element.
-		</audio>
-		
-		<script>
-			// JavaScript to control the audio player
-			const audioPlayer = document.getElementById('audio-player');
+	<audio id="audio-player" loop>
+		<source src="allubgm.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	
+	<script>
+		// JavaScript to control the audio player
+		const audioPlayer = document.getElementById('audio-player');
 
-			// Function to play audio
-			function playAudio() {
-				audioPlayer.play().catch(function (error) {
-					// Autoplay was prevented
-					// The audio will not start automatically on iOS and some browsers
-					// Let's catch the error and attempt to play again after a user interaction
-					document.addEventListener('click', playAudio);
-					document.addEventListener('touchstart', playAudio);
-				});
-			}
+		// Function to play audio
+		function playAudio() {
+			audioPlayer.play();
+			// Remove event listeners after audio playback starts to avoid multiple playbacks
+			document.removeEventListener('click', playAudio);
+			document.removeEventListener('touchstart', playAudio);
+		}
 
-			// Call playAudio function when the page loads
-			window.onload = playAudio;
-		</script>
+		// Event listeners for the first user interaction (click or touch)
+		document.addEventListener('click', playAudio);
+		document.addEventListener('touchstart', playAudio);
+	</script>
 <!-- <audio id="audio-player" loop>
 	<source src="allubgm.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
