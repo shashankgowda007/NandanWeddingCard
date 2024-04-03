@@ -88,7 +88,9 @@
 
 		// Function to play audio
 		function playAudio() {
-			audioPlayer.play();
+			audioPlayer.play().catch(error => {
+				console.error("Autoplay was prevented:", error);
+			});
 			// Remove event listeners after audio playback starts to avoid multiple playbacks
 			document.removeEventListener('click', playAudio);
 			document.removeEventListener('touchstart', playAudio);
